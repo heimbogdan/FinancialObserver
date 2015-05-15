@@ -2,14 +2,12 @@ package com.observer;
 
 import java.util.ArrayList;
 
-import com.observer.subscriber.TransactionSubscriber;
-
 public abstract class GenaralFinancialObserver<T> extends GeneralObserver<T> {
 	
 	private String accNo;
-	private ArrayList<TransactionSubscriber> subscribers = new ArrayList<TransactionSubscriber>();
+	private ArrayList<T> subscribers = new ArrayList<T>();
 	
-	public ArrayList<TransactionSubscriber> getSubscribers() {
+	public ArrayList<T> getSubscribers() {
 		return subscribers;
 	}
 

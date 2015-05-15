@@ -19,11 +19,15 @@ public class FinancialTransactionObserver extends
 	@Override
 	public void register(TransactionSubscriber subscriber) {
 		this.getSubscribers().add(subscriber);
+		if(this.getSubscribers().size() == 1){
+			update();
+		}
 	}
 
 	@Override
 	public void unregister(TransactionSubscriber subscriber) {
 		this.getSubscribers().remove(subscriber);
+		//update();
 	}
 
 	@Override

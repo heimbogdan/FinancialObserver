@@ -15,5 +15,12 @@ public class Account {
 	public void handle(){
 		System.out.println(id);
 	}
+
+	public Account(String accNo, int id) {
+		super();
+		this.accNo = accNo;
+		this.id = id;
+	}
+	
 	
 }
