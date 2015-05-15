@@ -7,6 +7,17 @@ import sun.security.x509.GeneralNameInterface;
 
 public class FinancialTransactionObserver extends GenaralFinancialObserver{
 
+	private boolean lock = false;
+	
+	
+	public boolean isLock() {
+		return lock;
+	}
+
+	public void setLock(boolean lock) {
+		this.lock = lock;
+	}
+
 	@Override
 	public void register(TransactionSubscriber subscriber) {
 		this.getSubscribers().add(subscriber);		
