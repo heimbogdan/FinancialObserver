@@ -42,6 +42,12 @@ public class Main2 {
 					manager.register(a2);
 					Thread.sleep(1);
 					manager.register(a3);
+					Thread.sleep(1);
+					manager.register(a1);
+					Thread.sleep(1);
+					manager.register(a2);
+					Thread.sleep(1);
+					manager.register(a3);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -59,6 +65,12 @@ public class Main2 {
 					manager.register(a5);
 					Thread.sleep(1);
 					manager.register(a6);
+					Thread.sleep(1);
+					manager.register(a4);
+					Thread.sleep(1);
+					manager.register(a5);
+					Thread.sleep(1);
+					manager.register(a6);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -71,6 +83,12 @@ public class Main2 {
 			public void run() {
 				try {
 					gate.await();
+					manager.register(a7);
+					Thread.sleep(1);
+					manager.register(a8);
+					Thread.sleep(1);
+					manager.register(a9);
+					Thread.sleep(1);
 					manager.register(a7);
 					Thread.sleep(1);
 					manager.register(a8);
