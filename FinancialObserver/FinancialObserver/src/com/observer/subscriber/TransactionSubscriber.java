@@ -8,12 +8,10 @@ public class TransactionSubscriber implements TransactionSubscriberInterface {
 
 	private Account acc;
 	private FinancialTransactionObserver observer1;
-	private boolean lock = false;
 
 	public void update() {
 		synchronized (observer1) {
 			if (!observer1.isLock()) {
-				this.lock = true;
 				observer1.setLock(true);
 				acc.handle();
 				observer1.unregister(this);
