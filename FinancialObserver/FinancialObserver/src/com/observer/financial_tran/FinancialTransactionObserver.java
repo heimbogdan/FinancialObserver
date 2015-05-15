@@ -27,7 +27,6 @@ public class FinancialTransactionObserver extends
 	@Override
 	public void unregister(TransactionSubscriber subscriber) {
 		this.getSubscribers().remove(subscriber);
-		//update();
 	}
 
 	@Override
