@@ -1,15 +1,13 @@
 package com.observer.financial_tran;
 
 import com.observer.GenaralFinancialObserver;
+import com.observer.subscriber.TransactionSubscriber;
 
-import sun.security.x509.GeneralNameInterface;
-
-
-public class FinancialTransactionObserver extends GenaralFinancialObserver{
+public class FinancialTransactionObserver extends
+		GenaralFinancialObserver<TransactionSubscriber> {
 
 	private boolean lock = false;
-	
-	
+
 	public boolean isLock() {
 		return lock;
 	}
@@ -20,7 +18,7 @@ public class FinancialTransactionObserver extends GenaralFinancialObserver{
 
 	@Override
 	public void register(TransactionSubscriber subscriber) {
-		this.getSubscribers().add(subscriber);		
+		this.getSubscribers().add(subscriber);
 	}
 
 	@Override
@@ -30,19 +28,9 @@ public class FinancialTransactionObserver extends GenaralFinancialObserver{
 
 	@Override
 	public void update() {
-		this.getSubscribers().get(0).update();
+		if (this.getSubscribers().size() > 0) {
+			this.getSubscribers().get(0).update();
+		}
 	}
-
-	@Override
-	public <T> void register(T subscriber) {
-		
-	}
-
-	@Override
-	public <T> void unregister(T subscriber) {
-		
-	}
-
-	
 
 }

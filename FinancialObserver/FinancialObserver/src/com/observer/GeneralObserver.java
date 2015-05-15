@@ -1,10 +1,11 @@
 package com.observer;
 
-public abstract class GeneralObserver {
+public abstract class GeneralObserver<T> {
 
-	public abstract <T> void register(T subscriber);
+	public abstract void register(T subscriber);
 	
-	public abstract <T> void unregister(T subscriber);
+	public abstract void unregister(T subscriber);
 	
 	public abstract void update();
+
 }

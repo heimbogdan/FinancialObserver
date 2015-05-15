@@ -2,7 +2,9 @@ package com.observer;
 
 import java.util.ArrayList;
 
-public abstract class GenaralFinancialObserver extends GeneralObserver {
+import com.observer.subscriber.TransactionSubscriber;
+
+public abstract class GenaralFinancialObserver<T> extends GeneralObserver<T> {
 	
 	private String accNo;
 	private ArrayList<TransactionSubscriber> subscribers = new ArrayList<TransactionSubscriber>();
@@ -16,12 +18,11 @@ public abstract class GenaralFinancialObserver extends GeneralObserver {
 	}
 	
 	@Override
-	public abstract void register(TransactionSubscriber subscriber);
+	public abstract void register(T subscriber);
 	
 	@Override
-	public abstract void unregister(TransactionSubscriber subscriber);
+	public abstract void unregister(T subscriber);
 
 	@Override
 	public abstract void update();
-
 }
