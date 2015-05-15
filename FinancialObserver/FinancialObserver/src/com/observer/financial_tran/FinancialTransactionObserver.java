@@ -1,11 +1,13 @@
 package com.observer.financial_tran;
 
 import com.observer.GenaralFinancialObserver;
+import com.observer.manager.FinancialTransactionManager;
 import com.observer.subscriber.TransactionSubscriber;
 
 public class FinancialTransactionObserver extends
 		GenaralFinancialObserver<TransactionSubscriber> {
-
+	
+	private FinancialTransactionManager manager;
 	private boolean lock = false;
 
 	public boolean isLock() {
@@ -14,6 +16,12 @@ public class FinancialTransactionObserver extends
 
 	public void setLock(boolean lock) {
 		this.lock = lock;
+	}
+
+	
+	public FinancialTransactionObserver(FinancialTransactionManager manager) {
+		super();
+		this.manager = manager;
 	}
 
 	@Override
@@ -33,6 +41,8 @@ public class FinancialTransactionObserver extends
 	public void update() {
 		if (this.getSubscribers().size() > 0) {
 			this.getSubscribers().get(0).update();
+		} else {
+			manager.removeObserver(this);
 		}
 	}
 
